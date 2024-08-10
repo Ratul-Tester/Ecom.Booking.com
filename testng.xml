@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Ratul's Lappy/IdeaProjects/Ecom.Booking/src/test/java/org/ecom_booking">
+        <classes>
+            <class name="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
+                <methods>
+                    <include name="createAuthTokenPOSTMethod"/>
+                    <include name="createBookingPOSTMethod"/>
+                    <include name="getParticularBookingGETMethod"/>
+                    <include name="fullyUpdatePUTMethod"/>
+                    <include name="partiallyUpdatePUTMethod"/>
+                    <include name="deleteBookingDELETEMethod"/>
+                    <include name="checkParticularBookingIDGETMethod"/>
+                </methods>
+            </class>
+            <class name="org.ecom_booking.Modules.Booking_App_HealthCheck">
+                <methods>
+                    <include name="appHealthGETMethod"/>
+                </methods>
+            </class>
+            <class name="org.ecom_booking.Modules.Create_AUTH">
+                <methods>
+                    <include name="createAuthTokenPOSTMethod"/>
+                </methods>
+            </class>
+            <class name="org.ecom_booking.Modules.Create_Booking">
+                <methods>
+                    <include name="createBookingPOSTMethod"/>
+                </methods>
+            </class>
+            <class name="org.ecom_booking.Modules.Delete_Booking">
+                <methods>
+                    <include name="deleteBookingDELETEMethod"/>
+                </methods>
+            </class>
+            <class name="org.ecom_booking.Modules.Fully_Update_Booking">
+                <methods>
+                    <include name="fullyUpdatePUTMethod"/>
+                </methods>
+            </class>
+            <class name="org.ecom_booking.Modules.Get_All_Bookingids">
+                <methods>
+                    <include name="getAllBookingIdsGETMethod"/>
+                </methods>
+            </class>
+            <class name="org.ecom_booking.Modules.Get_Single_BookingID">
+                <methods>
+                    <include name="getParticularBookingGETMethod"/>
+                </methods>
+            </class>
+            <class name="org.ecom_booking.Modules.Partially_Update_Booking">
+                <methods>
+                    <include name="partiallyUpdatePUTMethod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

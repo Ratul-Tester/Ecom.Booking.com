@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Ecom.Booking"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="9.021">
+    <properties></properties>
+
+
+
+            <testcase
+                name="createBookingPOSTMethod"
+                time="9.021"
+                classname="org.ecom_booking.Modules.Create_Booking">
+            </testcase>
+</testsuite>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="Ecom.Booking_End to End Testing">
+        <classes>
+            <class name="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
+                <methods>
+                    <include name="createAuthTokenPOSTMethod"/>
+                    <include name="createBookingPOSTMethod"/>
+                    <include name="getParticularBookingGETMethod"/>
+                    <include name="fullyUpdatePUTMethod"/>
+                    <include name="partiallyUpdatePUTMethod"/>
+                    <include name="deleteBookingDELETEMethod"/>
+                    <include name="checkParticularBookingIDGETMethod"/>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+</suite>

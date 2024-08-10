@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Ecom.Booking"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="10.619">
+    <properties></properties>
+
+
+
+            <testcase
+                name="createAuthTokenPOSTMethod"
+                time="10.619"
+                classname="org.ecom_booking.Modules.Create_AUTH">
+            </testcase>
+</testsuite>
