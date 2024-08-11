@@ -4,44 +4,44 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="21.446">
+           time="15.872">
     <properties></properties>
 
 
 
             <testcase
-                name="getParticularBookingGETMethod"
-                time="1.953"
-                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
-            </testcase>
-            <testcase
-                name="partiallyUpdatePUTMethod"
-                time="1.990"
-                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
-            </testcase>
-            <testcase
-                name="deleteBookingDELETEMethod"
-                time="2.165"
-                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
-            </testcase>
-            <testcase
-                name="createAuthTokenPOSTMethod"
-                time="9.384"
-                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
-            </testcase>
-            <testcase
-                name="checkParticularBookingIDGETMethod"
-                time="2.121"
+                name="createBookingPOSTMethod"
+                time="1.490"
                 classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
             </testcase>
             <testcase
                 name="fullyUpdatePUTMethod"
-                time="1.741"
+                time="1.514"
                 classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
             </testcase>
             <testcase
-                name="createBookingPOSTMethod"
-                time="2.092"
+                name="getParticularBookingGETMethod"
+                time="1.367"
+                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
+            </testcase>
+            <testcase
+                name="deleteBookingDELETEMethod"
+                time="1.289"
+                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
+            </testcase>
+            <testcase
+                name="partiallyUpdatePUTMethod"
+                time="1.352"
+                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
+            </testcase>
+            <testcase
+                name="createAuthTokenPOSTMethod"
+                time="7.495"
+                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
+            </testcase>
+            <testcase
+                name="checkParticularBookingIDGETMethod"
+                time="1.365"
                 classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
             </testcase>
 </testsuite>

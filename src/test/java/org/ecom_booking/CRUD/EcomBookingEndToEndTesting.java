@@ -6,7 +6,10 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.text.StringCharacterIterator;
 
 public class EcomBookingEndToEndTesting {
 
@@ -48,6 +51,7 @@ public class EcomBookingEndToEndTesting {
             "}";
 
     String token;
+
     Integer bookingID;
 
     RequestSpecification requestSpecification = RestAssured.given();
@@ -88,8 +92,12 @@ public class EcomBookingEndToEndTesting {
         validatableResponse.log().all();
 
         bookingID = response.then().log().all().extract().path("bookingid");
+        String f = response.then().log().all().extract().path("booking.firstname");
+        System.out.println("name: "+f);
+        Assert.assertEquals("Balana", f);
         System.out.println("The booking is created and ID no. is : " + bookingID);
         System.out.println("End of creating bookingID, and is stored for further process..");
+
     }
 
     @Description("Getting the newly created bookingID details")
@@ -121,6 +129,9 @@ public class EcomBookingEndToEndTesting {
         validatableResponse = response.then();
         validatableResponse.statusCode(200);
         validatableResponse.log().all();
+        String firname = response.then().log().all().extract().path("firstname");
+        Assert.assertEquals("Ramesh", firname);
+        System.out.println(firname);
         System.out.println("End of fully updating the new booking details");
     }
 
@@ -138,6 +149,9 @@ public class EcomBookingEndToEndTesting {
         validatableResponse = response.then();
         validatableResponse.statusCode(200);
         validatableResponse.log().all();
+        String fname = response.then().log().all().extract().path("firstname");
+        Assert.assertEquals("Ratul", fname);
+        System.out.println(fname);
         System.out.println("End of partially updating the new booking details");
     }
 
