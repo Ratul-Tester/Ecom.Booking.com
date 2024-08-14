@@ -3,13 +3,14 @@ package org.ecom_booking.CRUD;
 import io.qameta.allure.Description;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.text.StringCharacterIterator;
+import java.util.Objects;
 
 public class EcomBookingEndToEndTesting {
 
@@ -75,6 +76,11 @@ public class EcomBookingEndToEndTesting {
         token = response.then().log().all().extract().path("token");
         System.out.println("The Created Token is : " + token);
         System.out.println("End of creating token, and is stored for further process..");
+
+        String fullResponseJSONData = response.asString();
+        System.out.println(fullResponseJSONData);
+
+        Assert.assertNotNull(token, "Error");
     }
 
     @Description("BookingID will be created")
@@ -93,12 +99,42 @@ public class EcomBookingEndToEndTesting {
 
         bookingID = response.then().log().all().extract().path("bookingid");
         String f = response.then().log().all().extract().path("booking.firstname");
-        System.out.println("name: "+f);
+        System.out.println("name: " + f);
         Assert.assertEquals("Balana", f);
         System.out.println("The booking is created and ID no. is : " + bookingID);
         System.out.println("End of creating bookingID, and is stored for further process..");
 
-    }
+        String fullResponseJSONData = response.asString();
+
+        JsonPath jsonPath = new JsonPath(fullResponseJSONData);
+        Integer bookingIDJsonPathExtracted = jsonPath.getInt("bookingid");
+        String firstNameJsonPathExtracted = jsonPath.getString("booking.firstname");
+        String lastNameJsonPathExtracted = jsonPath.getString("booking.lastname");
+        Integer totalPriceJsonPathExtracted = jsonPath.getInt("booking.totalprice");
+        Boolean depositPaidJsonPathExtracted = jsonPath.getBoolean("booking.depositpaid");
+        String bookingDatesJsonPathExtracted = jsonPath.getString("booking.bookingdates");
+        String additionalneedsJsonPathExtracted = jsonPath.getString("booking.additionalneeds");
+
+        System.out.println(bookingIDJsonPathExtracted);
+        System.out.println(firstNameJsonPathExtracted);
+        System.out.println(lastNameJsonPathExtracted);
+        System.out.println(totalPriceJsonPathExtracted);
+        System.out.println(depositPaidJsonPathExtracted);
+        System.out.println(bookingDatesJsonPathExtracted);
+        System.out.println(additionalneedsJsonPathExtracted);
+
+        Assert.assertEquals(firstNameJsonPathExtracted, "Balana");
+        Assert.assertEquals(lastNameJsonPathExtracted, "Bala");
+        Assert.assertEquals(totalPriceJsonPathExtracted, 111);
+        Assert.assertEquals(depositPaidJsonPathExtracted, true);
+        Assert.assertEquals(bookingDatesJsonPathExtracted, "[checkin:2018-01-01, checkout:2019-01-01]");
+        Assert.assertEquals(additionalneedsJsonPathExtracted, "Breakfast");
+
+        System.out.println(Objects.equals(f, firstNameJsonPathExtracted));
+
+        System.out.println("All assertions are passed");
+
+        }
 
     @Description("Getting the newly created bookingID details")
     @Test(priority = 3)
@@ -113,6 +149,8 @@ public class EcomBookingEndToEndTesting {
         validatableResponse.statusCode(200);
         validatableResponse.log().all();
         System.out.println("End of getting the details of newly created booking");
+
+
     }
 
     @Description("Fully updating the new booking details")
@@ -133,6 +171,8 @@ public class EcomBookingEndToEndTesting {
         Assert.assertEquals("Ramesh", firname);
         System.out.println(firname);
         System.out.println("End of fully updating the new booking details");
+
+
     }
 
     @Description("Again partially updating the booking details")
@@ -153,6 +193,8 @@ public class EcomBookingEndToEndTesting {
         Assert.assertEquals("Ratul", fname);
         System.out.println(fname);
         System.out.println("End of partially updating the new booking details");
+
+
     }
 
     @Description("Deleting the existing booking details")
