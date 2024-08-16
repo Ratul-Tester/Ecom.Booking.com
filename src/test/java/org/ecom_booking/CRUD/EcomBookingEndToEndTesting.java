@@ -7,8 +7,10 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.Objects;
 
@@ -97,6 +99,9 @@ public class EcomBookingEndToEndTesting {
         validatableResponse.statusCode(200);
         validatableResponse.log().all();
 
+        //validatableResponse.body("firstname", Matchers.equalTo("Balana"));
+        //validatableResponse.body("lastname", Matchers.equalTo("Bala"));
+
         bookingID = response.then().log().all().extract().path("bookingid");
         String f = response.then().log().all().extract().path("booking.firstname");
         System.out.println("name: " + f);
@@ -122,13 +127,16 @@ public class EcomBookingEndToEndTesting {
         System.out.println(depositPaidJsonPathExtracted);
         System.out.println(bookingDatesJsonPathExtracted);
         System.out.println(additionalneedsJsonPathExtracted);
-
+                                    //TestNG Assertion
         Assert.assertEquals(firstNameJsonPathExtracted, "Balana");
         Assert.assertEquals(lastNameJsonPathExtracted, "Bala");
         Assert.assertEquals(totalPriceJsonPathExtracted, 111);
         Assert.assertEquals(depositPaidJsonPathExtracted, true);
         Assert.assertEquals(bookingDatesJsonPathExtracted, "[checkin:2018-01-01, checkout:2019-01-01]");
         Assert.assertEquals(additionalneedsJsonPathExtracted, "Breakfast");
+                                    //AssertJ Assertions
+        assertThat(bookingIDJsonPathExtracted).isNotZero().isNotNegative();
+        assertThat(totalPriceJsonPathExtracted).isNotZero().isNotNegative();
 
         System.out.println(Objects.equals(f, firstNameJsonPathExtracted));
 
@@ -165,13 +173,20 @@ public class EcomBookingEndToEndTesting {
         System.out.println(depositPaid);
         System.out.println(bookingDates);
         System.out.println(additionalNeeds);
-
+                                    //TestNG Assertions
         Assert.assertEquals(firstName,"Balana");
         Assert.assertEquals(lastName,"Bala");
         Assert.assertEquals(totalPrice,"111");
         Assert.assertEquals(depositPaid,"true");
         Assert.assertEquals(bookingDates,"[checkin:2018-01-01, checkout:2019-01-01]");
         Assert.assertEquals(additionalNeeds,"Breakfast");
+                                    //AssertJ Assertions
+        assertThat(firstName).isNotBlank().isNotEmpty().isEqualTo("Balana").isAlphabetic();
+        assertThat(lastName).isNotBlank().isNotEmpty().isEqualTo("Bala").isAlphabetic();
+        assertThat(totalPrice).isNotBlank().isNotEmpty().containsOnlyDigits().isEqualTo("111");
+        assertThat(depositPaid).asBoolean().isTrue();
+        assertThat(bookingDates).isEqualTo("[checkin:2018-01-01, checkout:2019-01-01]");
+        assertThat(additionalNeeds).isEqualTo("Breakfast");
 
         System.out.println("All assertions are passed");
 

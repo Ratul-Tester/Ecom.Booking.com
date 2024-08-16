@@ -1,47 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Ecom.Booking_End to End Testing"
-           tests="7"
+<testsuite name="Ecom.Booking"
+           tests="1"
            failures="0"
            errors="0"
            skipped="0"
-           time="22.072">
+           time="7.965">
     <properties></properties>
 
 
 
             <testcase
-                name="checkParticularBookingIDGETMethod"
-                time="2.022"
-                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
-            </testcase>
-            <testcase
                 name="createBookingPOSTMethod"
-                time="1.719"
-                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
-            </testcase>
-            <testcase
-                name="createAuthTokenPOSTMethod"
-                time="10.226"
-                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
-            </testcase>
-            <testcase
-                name="fullyUpdatePUTMethod"
-                time="2.347"
-                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
-            </testcase>
-            <testcase
-                name="partiallyUpdatePUTMethod"
-                time="1.531"
-                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
-            </testcase>
-            <testcase
-                name="getParticularBookingGETMethod"
-                time="2.439"
-                classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
-            </testcase>
-            <testcase
-                name="deleteBookingDELETEMethod"
-                time="1.788"
+                time="7.965"
                 classname="org.ecom_booking.CRUD.EcomBookingEndToEndTesting">
             </testcase>
 </testsuite>
