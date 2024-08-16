@@ -150,6 +150,30 @@ public class EcomBookingEndToEndTesting {
         validatableResponse.log().all();
         System.out.println("End of getting the details of newly created booking");
 
+        String fullResponse = response.asString();
+
+        JsonPath jsonPath = new JsonPath(fullResponse);
+        String firstName = jsonPath.getString("firstname");
+        String lastName = jsonPath.getString("lastname");
+        String totalPrice = jsonPath.getString("totalprice");
+        String depositPaid = jsonPath.getString("depositpaid");
+        String bookingDates = jsonPath.getString("bookingdates");
+        String additionalNeeds = jsonPath.getString("additionalneeds");
+        System.out.println(firstName);
+        System.out.println(lastName);
+        System.out.println(totalPrice);
+        System.out.println(depositPaid);
+        System.out.println(bookingDates);
+        System.out.println(additionalNeeds);
+
+        Assert.assertEquals(firstName,"Balana");
+        Assert.assertEquals(lastName,"Bala");
+        Assert.assertEquals(totalPrice,"111");
+        Assert.assertEquals(depositPaid,"true");
+        Assert.assertEquals(bookingDates,"[checkin:2018-01-01, checkout:2019-01-01]");
+        Assert.assertEquals(additionalNeeds,"Breakfast");
+
+        System.out.println("All assertions are passed");
 
     }
 
@@ -172,6 +196,25 @@ public class EcomBookingEndToEndTesting {
         System.out.println(firname);
         System.out.println("End of fully updating the new booking details");
 
+        String fullResponse = response.asString();
+
+        JsonPath jsonPath = new JsonPath(fullResponse);
+
+        String fname = jsonPath.getString("firstname");
+        String lname = jsonPath.getString("lastname");
+        String totalPrice = jsonPath.getString("totalprice");
+        String depositPaid = jsonPath.getString("depositpaid");
+        String bookingDates = jsonPath.getString("bookingdates");
+        String additionalNeeds = jsonPath.getString("additionalneeds");
+
+        Assert.assertEquals(fname,"Ramesh");
+        Assert.assertEquals(lname,"Bala");
+        Assert.assertEquals(totalPrice,"111");
+        Assert.assertEquals(depositPaid,"true");
+        Assert.assertEquals(bookingDates,"[checkin:2018-01-01, checkout:2019-01-01]");
+        Assert.assertEquals(additionalNeeds,"Breakfast");
+
+        System.out.println("All assertions are passed");
 
     }
 
@@ -193,6 +236,19 @@ public class EcomBookingEndToEndTesting {
         Assert.assertEquals("Ratul", fname);
         System.out.println(fname);
         System.out.println("End of partially updating the new booking details");
+
+        String fullRespone = response.asString();
+
+        JsonPath jsonPath = new JsonPath(fullRespone);
+
+        String finame = jsonPath.getString("firstname");
+        String laname = jsonPath.getString("lastname");
+
+        Assert.assertEquals(finame,"Ratul");
+        Assert.assertEquals(laname,"Nandy");
+
+        System.out.println("All assertions are passed");
+
 
 
     }
